@@ -22,7 +22,7 @@ public class SecurityConfig {
 	public SecurityWebFilterChain springSecurityFilterChainSample(ServerHttpSecurity http) {
 		
 		return http.csrf(csrf -> csrf.disable()).authorizeExchange(exchanges -> exchanges
-            .pathMatchers("/patients/**", "/notes/**").authenticated()
+            .pathMatchers("/patients/**", "/notes/**", "/evaluator/**").authenticated()
             .anyExchange().permitAll())
 			.httpBasic(basic -> basic.authenticationManager(reactiveAuthenticationManager()))
 			.build();
