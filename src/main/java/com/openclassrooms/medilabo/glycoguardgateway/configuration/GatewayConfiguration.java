@@ -8,6 +8,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class GatewayConfiguration {
 
+	/**
+	 * Déclare les routes empruntés et détermine leur configuration.<br>
+	 * Dans notre cas on les redirige vers le load balancer dont le nom est bien spécifié par celui de nos applications.
+	 * @param builder
+	 * @return
+	 */
 	@Bean
 	public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
 		return builder.routes()
